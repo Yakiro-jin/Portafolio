@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - César José Díaz Rodríguez</title>
+    
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fuentes (Inter para un look limpio y moderno) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Definición de la nueva paleta de colores: Gris Carbón, Azul Profundo y Dorado */
+        :root {
+            --bg-charcoal: #384142; /* Gris Carbón Profundo (Fondo Principal) */
+            --bg-light: #ECF0F1; /* Blanco Roto/Gris Claro (Fondo de Tarjetas) */
+            --text-dark: #344453; /* Azul Oscuro/Negro (Texto principal sobre claro) */
+            --accent-blue: #14628f; /* Azul Profundo Corporativo (Acento Serio) */
+            --accent-gold: #ff0037; /* Dorado Metálico (Acento Distinción) */
+            --shadow-subtle: rgba(0, 0, 0, 0.3); /* Sombra oscura */
+        }
+        
+        /* Aplicación de fuentes y colores base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-charcoal); /* Fondo Gris Carbón */
+            color: var(--bg-light); /* Texto principal Claro sobre fondo oscuro */
+            min-height: 100vh;
+        }
+
+        /* Estilo general de las tarjetas (Columnas) - Alto contraste */
+        .creative-card {
+            background-color: var(--bg-light); /* Fondo Blanco Roto para tarjetas */
+            color: var(--text-dark); /* Texto Oscuro sobre fondo claro */
+            border: 1px solid var(--accent-blue); /* Borde Azul Profundo */
+            border-radius: 1rem; 
+            box-shadow: 0 5px 20px -3px var(--shadow-subtle);
+            transition: 
+                transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Efecto de borde Dorado al pasar el cursor */
+        .creative-card:hover {
+            transform: translateY(-8px) scale(1.01); 
+            border-color: var(--accent-gold); /* Borde Dorado */
+            box-shadow: 
+                0 0 8px var(--accent-gold), 
+                0 0 20px var(--accent-gold), 
+                0 10px 25px -5px rgba(0, 0, 0, 0.2); 
+        }
+
+        /* Estilo de los botones de acción principal (Acento Azul Profundo) */
+        .creative-button {
+            background-color: var(--accent-blue);
+            color: var(--bg-light); /* Texto claro sobre azul */
+            font-weight: 700;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 77, 121, 0.5);
+        }
+
+        .creative-button:hover {
+            background-color: var(--accent-gold); /* Dorado en hover */
+            color: var(--text-dark); /* Texto oscuro en hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 215, 0, 0.7);
+        }
+        
+        /* Estilo para los títulos de sección principales */
+        .section-title-accent {
+            color: var(--accent-gold); /* Usando el Dorado para los títulos principales */
+            font-family: 'Inter', sans-serif;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        /* Estilo para las etiquetas de habilidades (Azul Profundo) */
+        .skill-tag-dark {
+            background-color: var(--accent-blue);
+            color: var(--bg-light);
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .skill-tag-dark:hover {
+            background-color: var(--accent-gold);
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Estilo para la imagen de perfil (Redonda con borde de acento) */
+        .profile-image-round-accent {
+            border-radius: 9999px;
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Colores específicos para texto dentro de la tarjeta */
+        .card-text-light {
+            color: #666666; /* Gris más suave sobre blanco */
+        }
+        .card-text-normal {
+            color: var(--text-dark);
+        }
+        .text-accent-gold {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor Principal (Centrado y Responsive) -->
+    <div class="container mx-auto p-6 md:p-12 max-w-6xl">
+        
+        <!-- Encabezado / Título principal (Sobre fondo gris carbón) -->
+        <header class="mb-16 text-center pt-8">
+            <h1 class="text-6xl md:text-7xl font-extrabold mb-3 text-bg-light">
+                César José Díaz Rodríguez
+            </h1>
+            <p class="text-xl md:text-2xl text-accent-gold font-light">
+                Estudiante de Licenciatura en Informática | Analista de Sistemas
+            </p>
+        </header>
+
+        <!-- Contenido Principal: Perfil (Col 1) y Detalles (Col 2) -->
+        <!-- NOTA: Las columnas se han invertido en el código -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-20">
+            
+            <!-- Columna IZQUIERDA (AHORA ES LA COLUMNA GRANDE) - Perfil, Habilidades, Experiencia -->
+            <section class="lg:col-span-2 p-8 creative-card">
+                <h2 class="text-3xl font-bold mb-5 section-title-accent pb-3">
+                    Perfil Profesional
+                </h2>
+                <p class="text-lg mb-8 leading-relaxed card-text-normal">
+                    Estudiante avanzado de Licenciatura en Informática con experiencia como Analista de Sistemas en el sector hotelero. Especializado en desarrollo frontend, administración de redes y desarrollo de videojuegos. Combino conocimientos técnicos sólidos en programación (C++, Python, JavaScript, Flutter) con habilidades prácticas en electrónica y redes. Busco oportunidades para aplicar mis competencias en entornos innovadores que fomenten el crecimiento profesional y la creación de soluciones tecnológicas eficientes.
+                </p>
+                
+                <h3 class="text-2xl font-semibold mb-4 card-text-normal border-b border-accent-blue/50 pb-2">
+                    Competencias Clave
+                </h3>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <!-- Etiquetas de Habilidades (Tags) - Azul Profundo -->
+                    <span class="px-4 py-2 text-base skill-tag-dark">
+                        Desarrollo Frontend
+                    </span>
+                    <span class="px-4 py-2 text-base skill-tag-dark">
+                        Administración de Redes
+                    </span>
+                    <span class="px-4 py-2 text-base skill-tag-dark">
+                        Desarrollo de Videojuegos
+                    </span>
+                    <span class="px-4 py-2 text-base skill-tag-dark">
+                        Análisis de Sistemas
+                    </span>
+                    <span class="px-4 py-2 text-base skill-tag-dark">
+                        Electrónica
+                    </span>
+                    <span class="px-4 py-2 text-base skill-tag-dark">
+                        C++ y Python
+                    </span>
+                    <span class="px-4 py-2 text-base skill-tag-dark">
+                        Flutter
+                    </span>
+                    <span class="px-4 py-2 text-base skill-tag-dark">
+                        JavaScript
+                    </span>
+                    <span class="px-4 py-2 text-base skill-tag-dark">
+                        HTML/CSS
+                    </span>
+                </div>
+
+                <!-- Sección de Experiencia -->
+                <div class="mt-8 border-t border-accent-blue/50 pt-6">
+                    <h3 class="text-2xl font-semibold mb-5 card-text-normal border-b border-accent-blue/50 pb-2">
+                        Experiencia Laboral Relevante
+                    </h3>
+                    
+                    <!-- Entrada de Experiencia 1 (Borde Azul Profundo) -->
+                    <div class="mb-6 border-l-4 border-accent-blue pl-6">
+                        <p class="font-bold text-xl card-text-normal">Analista de Sistemas | Hotel Margarita Village</p>
+                        <p class="text-accent-blue font-medium text-sm">2022 - Actualidad</p>
+                        <ul class="list-disc list-inside ml-4 card-text-light text-sm mt-1">
+                            <li>Gestión y mantenimiento de sistemas informáticos del hotel, garantizando disponibilidad del 99.8%.</li>
+                            <li>Implementación de soluciones tecnológicas para optimizar procesos de reservas y atención al cliente.</li>
+                            <li>Administración de la infraestructura de red, mejorando la conectividad en todas las áreas del establecimiento.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Entrada de Experiencia 2 (Borde Azul Profundo) -->
+                    <div class="mb-6 border-l-4 border-accent-blue pl-6">
+                        <p class="font-bold text-xl card-text-normal">Proyectos de Desarrollo Independiente</p>
+                        <p class="text-accent-blue font-medium text-sm">2020 - Actualidad</p>
+                        <ul class="list-disc list-inside ml-4 card-text-light text-sm mt-1">
+                            <li>Desarrollo de aplicaciones móviles con Flutter para gestión de tareas y productividad.</li>
+                            <li>Creación de prototipos de videojuegos utilizando C++ y motores gráficos especializados.</li>
+                            <li>Diseño e implementación de sitios web responsivos con HTML, CSS y JavaScript.</li>
+                        </ul>
+                    </div>
+
+                    
+                    <p class="text-base card-text-light mt-4 border-t border-accent-blue/50 pt-3">
+                        <span class="font-bold card-text-normal">Formación:</span> Licenciatura en Informática (En curso) - Universidad Nacional Experimental de Guayana
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- Columna DERECHA (AHORA ES LA COLUMNA DELGADA) - Perfil, Contacto, Botones (Fondo Blanco Roto) -->
+            <section class="lg:col-span-1 p-8 creative-card h-fit">
+                <div class="text-center">
+                    <!-- Imagen de Perfil -->
+                    <img src="yo.png" 
+                        alt="Foto de Perfil de César Díaz"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x400/004D79/FFD700?text=César+Díaz';"
+                        class="w-56 h-56 object-cover profile-image-round-accent mx-auto mb-6">
+                    
+                    <h2 class="text-3xl font-bold card-text-normal mb-2">
+                        César Díaz
+                    </h2>
+                    <p class="text-lg text-accent-blue font-semibold mb-4">
+                        Innovación tecnológica con propósito
+                    </p>
+
+                    <div class="text-left mt-6 pt-4 border-t border-accent-blue/50">
+                        <h3 class="text-xl font-semibold text-accent-blue mb-3">
+                            Contacto
+                        </h3>
+                        <p class="card-text-light text-base mb-1">
+                            <span class="font-bold card-text-normal">Email:</span> cesarjozediazr@gmail.com
+                        </p>
+                        <p class="card-text-light text-base mb-1">
+                            <span class="font-bold card-text-normal">Teléfono:</span> +58 422-476-7676
+                        </p>
+                        <p class="card-text-light text-base">
+                            <span class="font-bold card-text-normal">Ubicación:</span> Altagracia, Nueva Esparta, Venezuela
+                        </p>
+                       
+                    </div>
+                    
+                    <!-- Botones de Acción -->
+                    <div class="flex flex-col gap-4 mt-8">
+                        
+                        
+                        
+                        <!-- Botón Descargar CV (Gris Carbón con Hover Dorado) -->
+                        <a href="./Curriculum%20cesar.pdf" download="Curriculum_cesar.pdf"
+                           class="flex items-center justify-center text-center px-8 py-3 rounded-md text-lg bg-bg-charcoal text-bg-light hover:bg-accent-gold hover:text-text-dark transition duration-300 shadow-md">
+                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Descargar CV
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Sección de Proyectos/Portafolio (Sobre fondo gris carbón) -->
+        <section class="mt-16 text-center">
+            <h2 class="text-4xl font-bold mb-10 section-title-accent pb-3 inline-block">
+                Casos de Éxito & Proyectos
+            </h2>
+            <div class="flex justify-center mb-12">
+                <p class="text-lg text-bg-light/80 max-w-2xl text-center">
+                    Documentación de los principales retos y soluciones que he desarrollado en mi trayectoria.
+                </p>
+            </div>
+
+            <!-- Grid de Proyectos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                
+                <!-- Proyecto 1 (Fondo Blanco Roto) -->
+                <article class="flex flex-col p-6 creative-card">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 card-text-normal">
+                            Sistema de Gestión Hotelera
+                        </h3>
+                        <p class="text-sm text-accent-blue font-medium mb-3">Reto: Optimización de red</p>
+                        <p class="mb-4 card-text-light">
+                            Desarrollo de una estrurura de red estable y segura, capaz de ser gestionada remotamente que asegura un soporte constante.
+                        </p>
+                    </div>
+                   
+                   
+                </article>
+
+                <!-- Proyecto 2 (Fondo Blanco Roto) -->
+                <article class="flex flex-col p-6 creative-card">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 card-text-normal">
+                            Aplicación Móvil de Productividad
+                        </h3>
+                        <p class="text-sm text-accent-blue font-medium mb-3">Área: Desarrollo con Flutter</p>
+                        <p class="mb-4 card-text-light">
+                            Creación de una aplicación multiplataforma para gestión de tareas y proyectos con sincronización en la nube, implementando algoritmos de priorización automática y recordatorios inteligentes.
+                        </p>
+                    </div>
+                 
+                </article>
+
+                <!-- Proyecto 3 (Fondo Blanco Roto) -->
+                <article class="flex flex-col p-6 creative-card">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 card-text-normal">
+                            Prototipo de Videojuego Educativo
+                        </h3>
+                        <p class="text-sm text-accent-blue font-medium mb-3">Impacto: Aprendizaje interactivo de conceptos de programación</p>
+                        <p class="mb-4 card-text-light">
+                            Desarrollo de un videojuego en C++ que enseña conceptos básicos de programación a través de desafíos interactivos, combinando conocimientos de electrónica con desarrollo de software.
+                        </p>
+                    </div>
+                  
+                </article>
+                
+            </div>
+        </section>
+
+        <!-- Pie de Página (Sobre fondo gris carbón) -->
+        <footer class="mt-20 pt-8 border-t border-bg-light/50 text-center text-sm text-bg-light/70">
+            <p>
+                Contacto y Colaboraciones. 
+                <span class="text-accent-gold ml-2">© 2025.</span>
+            </p>
+            <p class="text-xs mt-1">
+                Portafolio desarrollado con un diseño corporativo y elegante.
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
